@@ -1,11 +1,8 @@
 module.exports = function getZerosCount(number, base) {
-  
-  var numberFloor = base;
-  var pow = 0;
-  var con = 0;
-  var k = 0;
 
-  var zeroCnt = number;
+  let numberFloor = base;
+  let zeroCnt = number;
+  let pow = 0, con = 0, k = 0;  
 
   for (var i = 2; i <= base; i++) {
     if (numberFloor % i == 0) {
@@ -13,18 +10,18 @@ module.exports = function getZerosCount(number, base) {
 
       while (numberFloor % i == 0) {
         pow++;
-        numberFloor = Math.floor(numberFloor/i)
+        numberFloor = Math.floor(numberFloor / i)
       }
 
       con = 0;
       k = number;
 
-      while (k/i > 0) {
-        con += Math.floor(k/i);
-        k = Math.floor(k/i);
+      while (k / i > 0) {
+        con += Math.floor(k / i);
+        k = Math.floor(k / i);
       }
 
-      zeroCnt = Math.min(zeroCnt, Math.floor(con/pow));
+      zeroCnt = Math.min(zeroCnt, Math.floor(con / pow));
     }
   }
 
